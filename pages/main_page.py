@@ -1,14 +1,17 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import MainPageLocators
+from .locators import BasketPageLocators
 
 
-class MainPage(BasePage): 
-    def go_to_login_page(self):
-        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-        login_link.click()
+class MainPage(BasePage):
+    def __init__(self, *args, **kwargs):
+        super(MainPage, self).__init__(*args, **kwargs)
 
-    def should_be_login_link(self):
-        assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
+    def basket_should_not_be_full(self):
+        # реализуйте проверку, что есть форма логина
+        assert self.is_not_element_present(*BasketPageLocators.FULL_BASKET), "Basket is full"
 
-                  
+    def basket_should_be_empty(self):
+        # реализуйте проверку, что есть форма логина
+        assert self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT), "Basket is not empty"

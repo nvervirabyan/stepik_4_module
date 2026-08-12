@@ -18,3 +18,12 @@ class ProductPageLocators():
     PRODUCT_ADDED = (By.CSS_SELECTOR, ".alert-success strong")
     BASKET_TOTAL = (By.CSS_SELECTOR, ".alert-info strong")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET = (By.CSS_SELECTOR, "a.btn.btn-default[href$='/basket/']")
+
+class BasketPageLocators():
+    FULL_BASKET = (By.CSS_SELECTOR, ".basket-title")
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner > p")
